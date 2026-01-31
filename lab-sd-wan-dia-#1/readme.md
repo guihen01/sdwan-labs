@@ -60,5 +60,35 @@ Le trafic utilisateur est **NATé localement** et redirigé vers Internet via le
 ### 🔹 Configuration sur vEdge-7 — VPN 0 (Internet)
 
 Sur l’interface connectée à l’ISP :
+## 🔄 Fonctionnement du flux DIA
 
+1. Le trafic utilisateur est généré dans le **VPN 5**
+2. Il est routé vers le **VPN 0**
+3. Les paquets sortent via :
+   - **interface ge0/1**
+   - **NAT activé**
+4. Le trafic est envoyé directement vers Internet via **ISP-R**
+
+➡️ Tous les paquets du VPN 5 :
+- passent par le VPN 0
+- sont **NATés localement**
+- ne traversent pas le fabric SD-WAN
+
+---
+
+## ✅ Conclusion
+
+Ce lab valide :
+- la mise en œuvre du **DIA avec vEdges**
+- l’utilisation du **NAT local** pour l’accès Internet
+- la séparation claire :
+  - **VPN 5 : utilisateurs**
+  - **VPN 0 : transport / Internet**
+- une architecture simple et efficace pour des **utilisateurs invités**
+
+---
+
+## 🏷️ Mots-clés
+
+`Cisco SD-WAN` · `DIA` · `Direct Internet Access` · `NAT` · `vEdge` · `VPN 0` · `VPN 5` · `Eve-NG`
 
